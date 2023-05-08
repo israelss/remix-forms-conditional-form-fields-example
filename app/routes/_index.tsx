@@ -15,7 +15,6 @@ export const loader = async ({ request }: LoaderArgs) => {
 }
 
 export const action = async ({ request }: ActionArgs) => {
-  //TODO: logout not working
   await authenticator.logout(request, { redirectTo: '/login' });
 };
 
@@ -33,7 +32,7 @@ export default function Index() {
       <p>{data.name}</p>
       <p>{data.email}</p>
       <p>{data.password}</p>
-      <Form>
+      <Form method='post'>
         <Button type='submit'>Logout</Button>
       </Form>
     </Box >
